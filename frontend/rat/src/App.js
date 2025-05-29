@@ -1,13 +1,17 @@
-import React from 'react'
-import Login from './Components/Login'
-import { Route, Routes } from 'react-router-dom'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Login from './Components/Login';
+import Widgets from './Components/Widgets';
 
 const App = () => {
   return (
     <div>
-      <Login/>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/widgets" element={<Widgets />} />
+      </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

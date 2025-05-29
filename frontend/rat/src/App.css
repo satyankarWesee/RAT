@@ -1,0 +1,9 @@
+.fixed-width {
+    width: 384px; /* equivalent to w-96 */
+  }
+
+  .text-uniform {
+    font-size: 1rem; /* Example: base size */
+  }
+  
+  
