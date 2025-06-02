@@ -9,7 +9,12 @@ const Widgets = () => {
 
   const getIP = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/remote-tools'); // Your API here
+      const response = await axios.get('http://192.168.100.201:8000/api/', {
+        headers : {
+          "User-Agent" : "MyReactApp",
+          "Content-Type" : "application/json",
+        }
+      }); // Your API here
       console.log(response.data);
       setIps(response.data)
     } catch (error) {

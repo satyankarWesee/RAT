@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import RemoteTool
 from django.http import JsonResponse
-
+from django.http import HttpResponse
+ 
 def get_remote_tools(request):
     try:
         tools = RemoteTool.objects.values('ip_address', 'os_name', 'status')
@@ -13,3 +14,5 @@ def get_remote_tools(request):
             status=500
         )
 
+def test_view(request):
+    return HttpResponse("OK")
