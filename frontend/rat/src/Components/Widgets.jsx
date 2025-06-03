@@ -10,14 +10,8 @@ const Widgets = () => {
   const getIP = async () => {
     try {
       const response = await axios.get('http://192.168.100.201:8000/api/', {
-<<<<<<< HEAD
-        headers : {
-          "User-Agent" : "MyReactApp",
-          "Content-Type" : "application/json",
-=======
         headers: {
           "User-Agent": "MyReactApp"
->>>>>>> 8d44866 (update commit)
         }
       }); // Your API here
       console.log(response.data);
