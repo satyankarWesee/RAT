@@ -10,9 +10,14 @@ const Widgets = () => {
   const getIP = async () => {
     try {
       const response = await axios.get('http://192.168.100.201:8000/api/', {
+<<<<<<< HEAD
         headers : {
           "User-Agent" : "MyReactApp",
           "Content-Type" : "application/json",
+=======
+        headers: {
+          "User-Agent": "MyReactApp"
+>>>>>>> 8d44866 (update commit)
         }
       }); // Your API here
       console.log(response.data);
@@ -34,30 +39,33 @@ const Widgets = () => {
         <span className='text-2xl font-medium'><RiFilter3Fill /></span>
       </div>
 
+      <div className='flex flex-row gap-14 p-2'>
+        <div>hello</div>
+        <div className='flex flex-row flex-wrap gap-4'>
 
-      <div className='space-x-2 block flex flex-row p-5'>
-
-        {ips.map((item) => (
-          <div
-            key={item.id}
-            className={`border border-gray-700 w-96 rounded-xl block flex flex-row gap-8 p-2 ${item.status === "red" ? "bg-[#f8d7da]" :
+          {ips.map((item) => (
+            <div
+              key={item.id}
+              className={`border border-gray-700 w-80 rounded-xl flex flex-row gap-8 p-2 ${item.status === "red" ? "bg-[#f8d7da]" :
                 item.status === "green" ? "bg-[#d4edda]" :
                   "bg-[#f0f0f0]" // default fallback color
-              }`}
-          >
-            <div>
-              <FaComputer size={90} />
-            </div>
-            <div className="w-full space-y-2">
-              <h2>{item.os_name}</h2>
-              {/* <p className="border border-x-5"></p> */}
-              <hr className="border-t border-gray-400" />
+                }`}
+            >
+              <div>
+                <FaComputer size={90} />
+              </div>
+              <div className="w-full space-y-2">
+                <h2>{item.os_name}</h2>
+                {/* <p className="border border-x-5"></p> */}
+                <hr className="border-t border-gray-400" />
 
-              <span>{item.ip_address}</span>
+                <span>{item.ip_address}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
 
     </div>
   );
