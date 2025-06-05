@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import RemoteTool
+from .models import RemoteTool, SystemAudit
 from django.http import JsonResponse
 from django.http import HttpResponse
  
-def get_remote_tools(request):
+def get_remote_tools1(request):
     try:
         tools = RemoteTool.objects.values('ip_address', 'os_name', 'status')
         data = list(tools)
@@ -13,6 +13,20 @@ def get_remote_tools(request):
             {"error": "Failed to retrieve data. Please try again later."},
             status=500
         )
+    
+def get_remote_tools(request):
+    try:
+        tools = SystemAudit.objects.all().values()
+        data = list(tools)
+        print(data)
+        return JsonResponse(data, safe=False, status=200)
+    except Exception as e:
+        return JsonResponse(
+            {"error": "Failed to retrieve data. Please try again later."},
+            status=500
+        )
+
 
 def test_view(request):
     return HttpResponse("OK")
+    
