@@ -18,7 +18,6 @@ def get_remote_tools(request):
     try:
         tools = SystemAudit.objects.all().values()
         data = list(tools)
-        print(data)
         return JsonResponse(data, safe=False, status=200)
     except Exception as e:
         return JsonResponse(
