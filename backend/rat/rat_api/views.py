@@ -3,9 +3,10 @@ from .models import RemoteTool, SystemAudit
 from django.http import JsonResponse
 from django.http import HttpResponse
  
-def get_remote_tools1(request):
+    
+def system_ips(request):
     try:
-        tools = RemoteTool.objects.values('ip_address', 'os_name', 'status')
+        tools = SystemAudit.objects.values('ip_address')
         data = list(tools)
         return JsonResponse(data, safe=False, status=200)
     except Exception as e:
@@ -14,18 +15,20 @@ def get_remote_tools1(request):
             status=500
         )
     
-def get_remote_tools(request):
+def system_ip_detail(request, ip_address):
     try:
-        tools = SystemAudit.objects.all().values()
-        data = list(tools)
-        return JsonResponse(data, safe=False, status=200)
+        tool = SystemAudit.objects.filter(ip_address=ip_address).values().first()
+        if tool:
+            return JsonResponse(tool, safe=False, status=200)
+        else:
+            return JsonResponse(
+                {"error": f"No data found for IP address {ip_address}"},
+                status=404
+            )
     except Exception as e:
         return JsonResponse(
             {"error": "Failed to retrieve data. Please try again later."},
             status=500
         )
 
-
-def test_view(request):
-    return HttpResponse("OK")
     
