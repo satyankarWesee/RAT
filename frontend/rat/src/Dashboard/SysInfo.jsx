@@ -1,7 +1,5 @@
 import React from 'react';
 import { IoFilterSharp } from "react-icons/io5";
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import Table from '../Components/Table';
 
 const SysInfo = () => {

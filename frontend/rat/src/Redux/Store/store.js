@@ -5,7 +5,7 @@ import { combineReducers } from 'redux';
 import ipReducer from '../Slices/ipSlice'
 
 const rootReducer = combineReducers({
-    ip: ipReducer,
+  ip_data:ipReducer,
   });
   
   const persistConfig = {

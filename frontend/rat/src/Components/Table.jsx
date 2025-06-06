@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux';
 const Table = ({ rows = [] }) => {
     const { ip } = useParams();
     console.log("this is the ip", ip)
-    const allData = useSelector((state) => state.ip.data);
-    console.log("this is my data", allData)
+
+    const ipDetails = useSelector(state => state.ip_data.data);
   
     // Filter the single item
-    const system = allData.find(item => item.ip_address === ip);
+    const system = ipDetails;
     console.log("this is my system", system)
     return (
         <div>

@@ -23,20 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/widgets" element={<Widgets />} />
-        <Route path="/" element={<SideBar />}>
-          <Route path="dashboard" element={<DashBoard />} />
-          <Route path="/sysinfo/:ip" element={<SysInfo />} />
-          <Route path="osb" element={<Osb />} />
-          <Route path="antivirus" element={<AntiVirus />} />
-          <Route path="remote" element={<Remote />} />
-          <Route path="browser" element={<Browser />} />
-          <Route path="software" element={<Software />} />
-          <Route path="networkconnection" element={<NetworkConnection />} />
-          <Route path="useraccount" element={<UserAccount />} />
-          <Route path="userdomain" element={<UserDomain />} />
-          <Route path="screensaver" element={<ScreenSaver />} />
-          <Route path="media" element={<Media />} />
-        </Route>
+        <Route path="/sidebar/:ip" element={<SideBar />}></Route>
       </Routes>
     </div>
   );
